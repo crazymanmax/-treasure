@@ -87,7 +87,7 @@ class wechatCallbackapiTest
                         $database->insert('location',['name'=>$fromUsername,'latitude'=>$latitude,'longitude'=>$longitude,'time'=>$time]);
                     }
                     $msgType = "text";
-                	$contentStr = "欢迎关注 南窗映雪！\r\n你的纬度是：{$latitude} \r\n你的经度是：{$longitude}\r\n回复cxdz名称，可以查出地理位置";
+                	$contentStr = "欢迎关注 南窗映雪！回复cxdz名称，可以查出地理位置";
                 	
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 	echo $resultStr;
