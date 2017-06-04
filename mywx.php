@@ -75,9 +75,9 @@ class wechatCallbackapiTest
                  }
 
                  //判断用户是否上传了地理位置
-                  $latitude=$postObj->Latitude;
-                  $longitude=$postObj->Longitude;
-                 if($msgType=='event' && $event=='LOCATION'){
+                  $latitude=$postObj->Location_X;
+                  $longitude=$postObj->Location_Y;
+                 if($msgType=='location'){
                     $data1=$database->select('location',['id','name'],["name[=]" =>$fromUsername]);
                     
                     file_put_contents('../aa.txt',$latitude.'/'.$longitude.'/'.$fromUsername);
