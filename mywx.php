@@ -78,14 +78,14 @@ class wechatCallbackapiTest
                   $latitude=$postObj->Location_X;
                   $longitude=$postObj->Location_Y;
                  if($msgType=='location'){
-                    //$data1=$database->select('location',['id','name'],["name[=]" =>$fromUsername]);
+                    $data1=$database->query("select id,name from location where name='{$fromUsername}'")->fetchAll();
                     
                     file_put_contents('../aa.txt',$latitude.'/'.$longitude.'/'.$fromUsername);
-                    //if(count($data1)==1){
-                       // $database->update('location',['latitude'=>$latitude,'longitude'=>$longitude,'time'=>$time],['id[=]'=>$data1[0]['id']]);
-                    //}else{
+                    if(count($data1)==1){
+                        $database->query("update location set latitude='{$latitude}',longitude='{$longitude}',time='{$time}' where id=".$data1[0]['id']);
+                    }else{
                         $database->query("insert into location values(null,'{$fromUsername}','{$latitude}','{$longitude}',{$time})");
-                    //}*/
+                    }
                     $msgType = "text";
                 	$contentStr = "欢迎关注 南窗映雪！回复cxdz名称，可以查出地理位置";
                 	
@@ -166,6 +166,29 @@ class wechatCallbackapiTest
 		                	$database->insert('text',['text'=>$keyword]);
 		                	echo $resultStr;
                  	break;
+                 }
+
+
+                 //匹配用户输入的的地址格式cxdz
+
+                 if(preg_match("/^cxdz([\x{4e00}-\x{9fa5}]+)/ui",$keyword,$res)){
+                 	$data1=$database->query("select * from location where name='{$fromUsername}'")->fetchAll();
+                 	if(count($data1)==1){
+
+                            $msgType = "text";
+		                	$contentStr = "请点击下面的连接，查询详细地址。\r\n http://api.map.baidu.com/place/search?query=".urlencode($res[1])."&location=".$data1[0]['latitude'].",".$data1[0]['longitude']."&radius=1000&output=html&coord_type=gcj02";
+		                	
+		                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+		                	echo $resultStr;
+
+                 	}else{
+                            $msgType = "text";
+		                	$contentStr = "请先上传地址信息";
+		                	
+		                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+		                	echo $resultStr;
+
+                 	}
                  }
 
 				//提交文本时，自动回复文字			
