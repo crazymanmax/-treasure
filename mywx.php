@@ -77,7 +77,31 @@ class wechatCallbackapiTest
                  //判断用户发送的内容
                  switch($keyword){
                  	case '图文':
-                        
+                       $textTpl ="<xml>
+								<ToUserName><![CDATA[%s]]></ToUserName>
+								<FromUserName><![CDATA[%s]]></FromUserName>
+								<CreateTime>%s</CreateTime>
+								<MsgType><![CDATA[news]]></MsgType>
+								<ArticleCount>%s</ArticleCount>
+								<Articles>";
+						$data1=$database->select('picText',['title','date','url','description','picurl'],["id[<]" => 100]);		
+						 
+						  $data2='';
+						  foreach($data1 as $v){
+                               $data2.="<item>
+										<Title><![CDATA[{$v['title']}]]></Title> 
+										<Description><![CDATA[{$v['description']}]]></Description>
+										<PicUrl><![CDATA[{$v['picurl']}]]></PicUrl>
+										<Url><![CDATA[{$v['url']}]]></Url>
+										</item>";
+						  }		
+						$textTpl.=$data2;		
+								
+						$textTpl.="</Articles>
+								</xml>";
+                         $count=count($data1);
+					   	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $count);
+					   	echo $resultStr;		
                  	break;
                  	case '美女':
                          
@@ -86,9 +110,9 @@ class wechatCallbackapiTest
                             $msgType = "text";
 		                	$contentStr = "欢迎来到微信的世界!";
 		                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-		                	file_put_contents('./aa.txt',$fromUsername);
+
 		                	$database->insert('text',['text'=>$keyword]);
-		                	echo $resultStr.$fromUsername;
+		                	echo $resultStr;
                  	break;
                  }
 
