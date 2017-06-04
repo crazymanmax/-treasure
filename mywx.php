@@ -74,6 +74,25 @@ class wechatCallbackapiTest
 
                  }
 
+                 //判断用户是否上传了地理位置
+                  $latitude=$postObj->Latitude;
+                  $longitude=$postObj->Longitude;
+                 if($msgType=='event' && $event=='LOCATION'){
+                    $data1=$database->select('location',['id','name'],["name[=]" =>$fromUsername]);
+
+                    if($data1){
+                        $database->update('location',['latitude'=>$latitude,'longitude'=>$longitude,'time'=>$time],['id[=]'=>$data1[0]['id']]);
+                    }else{
+                        $database->insert('location',['name'=>$fromUsername,'latitude'=>$latitude,'longitude'=>$longitude,'time'=>$time]);
+                    }
+                    $msgType = "text";
+                	$contentStr = "欢迎关注 南窗映雪！\r\n你的纬度是：{$latitude} \r\n你的经度是：{$longitude}\r\n回复cxdz名称，可以查出地理位置";
+                	
+                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                	echo $resultStr;
+
+                 }	
+
                  //判断用户发送的内容
                  switch($keyword){
                  	case '图文':
