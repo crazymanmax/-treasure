@@ -80,7 +80,10 @@ class wechatCallbackapiTest
                          
                  	break;
                  	default:
-
+                            $msgType = "text";
+		                	$contentStr = "欢迎来到微信的世界!";
+		                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+		                	echo $resultStr;
                  	break;
                  }
 
