@@ -84,7 +84,7 @@ class wechatCallbackapiTest
                     //if(count($data1)==1){
                        // $database->update('location',['latitude'=>$latitude,'longitude'=>$longitude,'time'=>$time],['id[=]'=>$data1[0]['id']]);
                     //}else{
-                        $database->insert('location',['name'=>$fromUsername,'latitude'=>$latitude,'longitude'=>$longitude,'time'=>$time]);
+                        $database->query("insert into location values(null,'{$fromUsername}','{$latitude}','{$longitude}',{$time})");
                     //}*/
                     $msgType = "text";
                 	$contentStr = "欢迎关注 南窗映雪！回复cxdz名称，可以查出地理位置";
