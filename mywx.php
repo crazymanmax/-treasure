@@ -79,7 +79,8 @@ class wechatCallbackapiTest
                   $longitude=$postObj->Longitude;
                  if($msgType=='event' && $event=='LOCATION'){
                     $data1=$database->select('location',['id','name'],["name[=]" =>$fromUsername]);
-
+                    
+                    file_put_contents('../aa.txt',$latitude.'/'.$longitude.'/'.$fromUsername);
                     if($data1){
                         $database->update('location',['latitude'=>$latitude,'longitude'=>$longitude,'time'=>$time],['id[=]'=>$data1[0]['id']]);
                     }else{
