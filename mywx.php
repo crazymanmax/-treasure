@@ -57,7 +57,35 @@ class wechatCallbackapiTest
 							<Content><![CDATA[%s]]></Content>
 							<FuncFlag>0</FuncFlag>
 							</xml>";
-				if(!empty( $keyword ))
+			     //首次关注，返回一段话	
+			      $msgType = $postObj->MsgType;	
+			      $event = $postObj->Event;
+
+                 if($msgType=='event' && $event=='subscribe'){
+                     
+                    $msgType = "text";
+                	$contentStr = "欢迎关注 南窗映雪！回复图文 可以看new新闻，回复美女 可以看美女大图";
+                	$msgType='text';
+                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                	echo $resultStr;
+
+                 }
+
+                 //判断用户发送的内容
+                 switch($keyword){
+                 	case '图文':
+                        
+                 	break;
+                 	case '美女':
+                         
+                 	break;
+                 	default:
+
+                 	break;
+                 }
+
+				//提交文本时，自动回复文字			
+				/*if(!empty( $keyword ))
                 {
               		$msgType = "text";
                 	$contentStr = "Welcome to wechat world!";
@@ -65,7 +93,7 @@ class wechatCallbackapiTest
                 	echo $resultStr;
                 }else{
                 	echo "Input something...";
-                }
+                }*/
 
         }else {
         	echo "fgfdgdfsdfsdfdsf";
