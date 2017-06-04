@@ -67,7 +67,7 @@ class wechatCallbackapiTest
                  if($msgType=='event' && $event=='subscribe'){
                      
                     $msgType = "text";
-                	$contentStr = "欢迎关注 南窗映雪！回复图文 可以看new新闻，回复美女 可以看美女大图";
+                	$contentStr = "欢迎关注 南窗映雪！回复图文 可以看new新闻，回复美女 可以看美女大图,回复 音乐可以听歌";
                 	
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 	echo $resultStr;
@@ -104,7 +104,39 @@ class wechatCallbackapiTest
 					   	echo $resultStr;		
                  	break;
                  	case '美女':
-                         
+                          $textTpl ="<xml>
+									<ToUserName><![CDATA[%s]]></ToUserName>
+									<FromUserName><![CDATA[%s]]></FromUserName>
+									<CreateTime>%s</CreateTime>
+									<MsgType><![CDATA[image]]></MsgType>
+									<Image>
+									<MediaId><![CDATA[%s]]></MediaId>
+									</Image>
+									</xml>";
+                          $mediaid='8b2d7aac7d5dc87173bc62a429545e18';
+						  $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $mediaid);
+					   	  echo $resultStr;			
+                 	break;
+                 	case '音乐':
+                         $textTpl ="<xml>
+									<ToUserName><![CDATA[%s]]></ToUserName>
+									<FromUserName><![CDATA[%s]]></FromUserName>
+									<CreateTime>%s</CreateTime>
+									<MsgType><![CDATA[music]]></MsgType>
+									<Music>
+									<Title><![CDATA[%s]]></Title>
+									<Description><![CDATA[%s]]></Description>
+									<MusicUrl><![CDATA[%s]]></MusicUrl>
+									<HQMusicUrl><![CDATA[%s]]></HQMusicUrl>									
+									</Music>
+									</xml>";
+
+						$title='音乐';
+						$desc='美妙的music';
+                        $musicurl='http://39.108.1.202/weixin/一次就好.mp3';
+                        $hqurl='http://39.108.1.202/weixin/凉凉.mp3';
+						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $title,$desc,$musicurl,$hqurl);
+					   	echo $resultStr;				
                  	break;
                  	default:
                             $msgType = "text";
