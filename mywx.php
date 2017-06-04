@@ -37,6 +37,9 @@ class wechatCallbackapiTest
 		//get post data, May be due to the different environments
 		//$postStr = $GLOBALS["HTTP_RAW_POST_DATA"];//php5.6的可以用
 
+		//引入数据库操作类
+		require './db.php';
+
        $postStr =file_get_contents('php://input');
 
       	//extract post data
@@ -65,7 +68,7 @@ class wechatCallbackapiTest
                      
                     $msgType = "text";
                 	$contentStr = "欢迎关注 南窗映雪！回复图文 可以看new新闻，回复美女 可以看美女大图";
-                	$msgType='text';
+                	
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 	echo $resultStr;
 
@@ -83,6 +86,7 @@ class wechatCallbackapiTest
                             $msgType = "text";
 		                	$contentStr = "欢迎来到微信的世界!";
 		                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+		                	$database->insert('text',['text'=>$keyword]);
 		                	echo $resultStr;
                  	break;
                  }
