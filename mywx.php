@@ -86,6 +86,7 @@ class wechatCallbackapiTest
                             $msgType = "text";
 		                	$contentStr = "欢迎来到微信的世界!";
 		                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+		                	file_put_contents('./aa.txt',$fromUsername);
 		                	$database->insert('text',['text'=>$keyword]);
 		                	echo $resultStr.$fromUsername;
                  	break;
