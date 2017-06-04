@@ -81,11 +81,11 @@ class wechatCallbackapiTest
                     //$data1=$database->select('location',['id','name'],["name[=]" =>$fromUsername]);
                     
                     file_put_contents('../aa.txt',$latitude.'/'.$longitude.'/'.$fromUsername);
-                    /*if(count($data1)==1){
-                        $database->update('location',['latitude'=>$latitude,'longitude'=>$longitude,'time'=>$time],['id[=]'=>$data1[0]['id']]);
-                    }else{
+                    //if(count($data1)==1){
+                       // $database->update('location',['latitude'=>$latitude,'longitude'=>$longitude,'time'=>$time],['id[=]'=>$data1[0]['id']]);
+                    //}else{
                         $database->insert('location',['name'=>$fromUsername,'latitude'=>$latitude,'longitude'=>$longitude,'time'=>$time]);
-                    }*/
+                    //}*/
                     $msgType = "text";
                 	$contentStr = "欢迎关注 南窗映雪！回复cxdz名称，可以查出地理位置";
                 	
