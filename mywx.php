@@ -133,8 +133,8 @@ class wechatCallbackapiTest
 
 						$title='音乐';
 						$desc='美妙的music';
-                        $musicurl='http://39.108.1.202/weixin/一次就好.mp3';
-                        $hqurl='http://39.108.1.202/weixin/凉凉.mp3';
+                        $musicurl='http://39.108.1.202/一次就好.mp3';
+                        $hqurl='http://39.108.1.202/凉凉.mp3';
 						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $title,$desc,$musicurl,$hqurl);
 					   	echo $resultStr;				
                  	break;
