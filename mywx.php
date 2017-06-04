@@ -159,12 +159,12 @@ class wechatCallbackapiTest
 					   	echo $resultStr;				
                  	break;
                  	default:
-                            $msgType = "text";
+                           /* $msgType = "text";
 		                	$contentStr = "欢迎来到微信的世界!";
 		                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 
 		                	$database->insert('text',['text'=>$keyword]);
-		                	echo $resultStr;
+		                	echo $resultStr;*/
                  	break;
                  }
 
