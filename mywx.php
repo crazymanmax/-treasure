@@ -123,6 +123,46 @@ class wechatCallbackapiTest
 					   	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $count);
 					   	echo $resultStr;		
                  	break;
+
+                    case '刮奖':
+                       $textTpl ="<xml>
+								<ToUserName><![CDATA[%s]]></ToUserName>
+								<FromUserName><![CDATA[%s]]></FromUserName>
+								<CreateTime>%s</CreateTime>
+								<MsgType><![CDATA[news]]></MsgType>
+								<ArticleCount>4</ArticleCount>
+								<Articles>
+								<item>
+								<Title><![CDATA[可能有奖哦]]></Title> 
+								<Description><![CDATA[开奖了]]></Description>
+								<PicUrl><![CDATA[./image/gg1.png]]></PicUrl>
+								<Url><![CDATA[./image/gg1.png]]></Url>
+								</item>
+								<item>
+								<Title><![CDATA[可能有奖哦]]></Title> 
+								<Description><![CDATA[开奖了]]></Description>
+								<PicUrl><![CDATA[./ggl/m1.jpg]]></PicUrl>
+								<Url><![CDATA[./ggl/gg1.html]]></Url>
+								</item>
+								<item>
+								<Title><![CDATA[可能有奖哦]]></Title> 
+								<Description><![CDATA[开奖了]]></Description>
+								<PicUrl><![CDATA[./ggl/m2.jpg]]></PicUrl>
+								<Url><![CDATA[./ggl/gg2.html]]></Url>
+								</item>
+								<item>
+								<Title><![CDATA[可能有奖哦]]></Title> 
+								<Description><![CDATA[开奖了]]></Description>
+								<PicUrl><![CDATA[./ggl/m3.jpg]]></PicUrl>
+								<Url><![CDATA[./ggl/gg3.html]]></Url>
+								</item>
+								</Articles>
+								</xml>";
+                         $count=count($data1);
+					   	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time);
+					   	echo $resultStr;		
+                 	break;
+
                  	case '美女':
                           $textTpl ="<xml>
 									<ToUserName><![CDATA[%s]]></ToUserName>
