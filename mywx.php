@@ -190,7 +190,7 @@ class wechatCallbackapiTest
 									<MediaId><![CDATA[%s]]></MediaId>
 									</Image>
 									</xml>";
-                          $mediaid='8b2d7aac7d5dc87173bc62a429545e18';
+                          $mediaid='akh6NcYrTR3qEoLXX7yDtw_nXXo6nJltsOyohTJH1h3WtNfzWFkmDyYKId1NiaU5';
 						  $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $mediaid);
 					   	  echo $resultStr;			
                  	break;
