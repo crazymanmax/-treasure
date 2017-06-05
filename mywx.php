@@ -133,33 +133,41 @@ class wechatCallbackapiTest
 								<ArticleCount>4</ArticleCount>
 								<Articles>
 								<item>
-								<Title><![CDATA[可能有奖哦]]></Title> 
-								<Description><![CDATA[开奖了]]></Description>
-								<PicUrl><![CDATA[./image/gg1.png]]></PicUrl>
-								<Url><![CDATA[./image/gg1.png]]></Url>
+								<Title><![CDATA[刮刮乐中心]]></Title> 
+								<Description><![CDATA[刮刮乐中心]]></Description>
+								<PicUrl><![CDATA[http://39.108.1.202/weixin/image/gg1.png]]></PicUrl>
+								<Url><![CDATA[http://39.108.1.202/weixin/image/gg1.png]]></Url>
 								</item>
 								<item>
 								<Title><![CDATA[可能有奖哦]]></Title> 
 								<Description><![CDATA[开奖了]]></Description>
-								<PicUrl><![CDATA[./ggl/m1.jpg]]></PicUrl>
-								<Url><![CDATA[./ggl/gg1.html]]></Url>
+								<PicUrl><![CDATA[http://39.108.1.202/weixin/image/gg1.png]]></PicUrl>
+								<Url><![CDATA[%s]]></Url>
 								</item>
 								<item>
 								<Title><![CDATA[可能有奖哦]]></Title> 
 								<Description><![CDATA[开奖了]]></Description>
-								<PicUrl><![CDATA[./ggl/m2.jpg]]></PicUrl>
-								<Url><![CDATA[./ggl/gg2.html]]></Url>
+								<PicUrl><![CDATA[http://39.108.1.202/weixin/image/gg1.png]]></PicUrl>
+								<Url><![CDATA[%s]]></Url>
 								</item>
 								<item>
 								<Title><![CDATA[可能有奖哦]]></Title> 
 								<Description><![CDATA[开奖了]]></Description>
-								<PicUrl><![CDATA[./ggl/m3.jpg]]></PicUrl>
-								<Url><![CDATA[./ggl/gg3.html]]></Url>
+								<PicUrl><![CDATA[http://39.108.1.202/weixin/image/gg1.png]]></PicUrl>
+								<Url><![CDATA[%s]]></Url>
 								</item>
 								</Articles>
 								</xml>";
+
+                                //填充模板
+								$gglArr = array();
+								for($i = 0; $i < 3; $i++)
+								{
+									$gglArr[$i] = "http://mywx.imeixue.cn/ggl/ggl".rand(1, 3).".html";
+								}
+
                          $count=count($data1);
-					   	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time);
+					   	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $gglArr[0],$gglArr[1],$gglArr[2]);
 					   	echo $resultStr;		
                  	break;
 
