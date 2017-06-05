@@ -279,7 +279,7 @@ class wechatCallbackapiTest
                  	$res=$this->getData($url);
 
                  	$msgType = "text";
-                	$contentStr = $res.987;
+                	$contentStr = $res.'987';
                 	
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 	echo $resultStr;
