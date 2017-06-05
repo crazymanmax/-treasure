@@ -13,8 +13,8 @@ if ($_GET['echostr'])
 }
 else
 {
-	//$wechatObj->responseMsg();
-	echo $wechatObj->getAccessToken();
+	$wechatObj->responseMsg();
+	//echo $wechatObj->getAccessToken();
 }
 
 //$wechatObj->responseMsg();
@@ -190,7 +190,7 @@ class wechatCallbackapiTest
 									<MediaId><![CDATA[%s]]></MediaId>
 									</Image>
 									</xml>";
-                          $mediaid='akh6NcYrTR3qEoLXX7yDtw_nXXo6nJltsOyohTJH1h3WtNfzWFkmDyYKId1NiaU5';
+                          $mediaid="is4Wxx4Y6jYKKSvZD3v3xwtz7GjWJg4dK_YQhaGmd6_md5MoQDU20H6Us3Mslykq";
 						  $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $mediaid);
 					   	  echo $resultStr;			
                  	break;
