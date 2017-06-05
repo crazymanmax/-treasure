@@ -64,34 +64,34 @@ class getData1{
 
 
     $json='{
-		     "button":[
-		     {	
-		          "type":"click",
-		          "name":"今日歌曲",
-		          "key":"1000"
-		      },
-		      {
-		           "name":"菜单",
-		           "sub_button":[
-		           {	
-		               "type":"view",
-		               "name":"搜索",
-		               "url":"http://www.soso.com/"
-		            },
-		            {
-		                 "type":"miniprogram",
-		                 "name":"wxa",
-		                 "url":"http://mp.weixin.qq.com",
-		                 "appid":"wx286b93c14bbf93aa",
-		                 "pagepath":"pages/lunar/index.html"
-		             },
-		            {
-		               "type":"click",
-		               "name":"赞一下我们",
-		               "key":"2000"
-		            }]
-		       }]
-		 }';
+		    "button": [
+		        {
+		            "type": "click", 
+		            "name": "今日歌曲", 
+		            "key": "1000"
+		        }, 
+		        {
+		            "name": "菜单", 
+		            "sub_button": [
+		                {
+		                    "type": "view", 
+		                    "name": "搜索", 
+		                    "url": "http://www.soso.com/"
+		                }, 
+		                {
+		                    "type": "click", 
+		                    "name": "歌曲", 
+		                    "key": "3000"
+		                }, 
+		                {
+		                    "type": "click", 
+		                    "name": "赞一下我们", 
+		                    "key": "2000"
+		                }
+		            ]
+		        }
+		    ]
+		}';
   
 
        $mod=new getData1;
