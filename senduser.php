@@ -89,7 +89,10 @@
    $url1="https://api.weixin.qq.com/cgi-bin/user/get?access_token={$id}";
 
    $data=json_decode($mod->getData($url1),true);
-   var_dump($data);
+   //var_dump($data);
+   $num=$data['total'];
+   $list=$data['data']['openid'];
+   var_dump($list);
 
      $url="https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token={$id}";		
  ?>
