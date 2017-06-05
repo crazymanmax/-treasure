@@ -100,8 +100,11 @@
   	$list1.='"'.$v.'",';
   }
   $list1=trim($list1,',');
+  if(count($list)>1){
+  	$list1='['.$list1.']';
+  }
    $data2='{
-		   "touser":['.$list1.'],
+		   "touser":'.$list1.',
 		    "msgtype": "text",
 		    "text": { "content": "hello from boxer."}
 		}';
