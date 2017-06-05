@@ -92,7 +92,19 @@
    //var_dump($data);
    $num=$data['total'];
    $list=$data['data']['openid'];
-   var_dump($list);
-
-     $url="https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token={$id}";		
+   //var_dump($list);
+    
+    //群发短信了
+   $list1="";
+  foreach($list as $v){
+  	$list1.='"'.$v.'",';
+  }
+  $list1=trim($list1,',');
+   $data2='{
+		   "touser":['.$list1.'],
+		    "msgtype": "text",
+		    "text": { "content": "hello from boxer."}
+		}';
+   $url="https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token={$id}";
+   $mod->getData($url,$data2);		
  ?>
