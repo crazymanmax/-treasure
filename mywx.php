@@ -167,7 +167,7 @@ class wechatCallbackapiTest
 								}
 
                          $count=count($data1);
-					   	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $gglArr[0],$gglArr[1],$gglArr[2]);
+					   	$resultStr = sprintf($textTpl, $fromUsername, $toUsername,$time, $gglArr[0],$gglArr[1],$gglArr[2]);
 					   	echo $resultStr;		
                  	break;
 
