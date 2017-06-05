@@ -86,7 +86,7 @@
    $id=$mod->getAccessToken();
 
    //获取openid列表
-   $url1="https://api.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN";
+   $url1="https://api.weixin.qq.com/cgi-bin/user/get?access_token={$id}";
 
    $data=json_decode($mod->getData($url1),true);
    var_dump($data);
