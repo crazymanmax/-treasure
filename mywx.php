@@ -226,6 +226,8 @@ class wechatCallbackapiTest
                  }
 
 
+
+
                  //匹配用户输入的的地址格式cxdz
 
                  if(preg_match("/^cxdz([\x{4e00}-\x{9fa5}]+)/ui",$keyword,$res)){
@@ -299,7 +301,7 @@ class wechatCallbackapiTest
     /*
      * curl请求，获取返回的数据
      * */
-    public function getData($url)
+    public function getData($url,$data=null)
     {
         // 1. cURL初始化
         $ch = curl_init();
@@ -313,6 +315,11 @@ class wechatCallbackapiTest
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+
+        if(!empty($data)){
+        	curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        }
 
         // 3. 执行cURL请求
         $ret = curl_exec($ch);
