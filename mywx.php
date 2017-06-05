@@ -273,8 +273,8 @@ class wechatCallbackapiTest
                  }
 
                   //查询天气的接口
-                 if(preg_match("/^天气(.+)/ui",$keyword,$res)){
-                 	$city=$res[1];
+                 if(substr($keyword,0,6)=='天气'){
+                 	$city=substr($keyword,6);
                  	$url="http://v.juhe.cn/weather/index&cityname=".urlencode($city)."&dtype=json&format=1&key=6a3ff788f9d36db3dee13d4af4240797";
                  	$res=$this->getData($url);
 
