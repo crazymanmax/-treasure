@@ -163,7 +163,7 @@ class wechatCallbackapiTest
 								$gglArr = array();
 								for($i = 0; $i < 3; $i++)
 								{
-									$gglArr[$i] = "http://mywx.imeixue.cn/ggl/ggl".rand(1, 3).".html";
+									$gglArr[$i] = "http://39.108.1.202/weixin/ggl/ggl".rand(1, 3).".html";
 								}
 
                          $count=count($data1);
