@@ -98,7 +98,8 @@ class getData1{
 
         //获取access_token的值
         $id=$mod->getAccessToken(); 
-
+        
         $url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token={$id}";
         $mod->getData($url,$json);
 		 
+       echo $id;
