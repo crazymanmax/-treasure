@@ -106,5 +106,7 @@
 		    "text": { "content": "hello from boxer."}
 		}';
    $url="https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token={$id}";
+
+   var_dump($data2);
    var_dump($mod->getData($url,$data2));		
  ?>
