@@ -75,6 +75,26 @@ class wechatCallbackapiTest
 
                  }
 
+                 //判断菜单栏点击事件
+                 if($event=='click'){
+                 	switch($postObj->EventKey){
+                 		case '1000':
+                              $contentStr = "很多美妙的歌曲哦";
+                 		break;
+                 		case '2000':
+                              $contentStr = "鼓励我们一下吧！";
+                 		break;
+                 		case '3000':
+                              $contentStr = "欢迎关注 南窗映雪！音乐可以听歌";
+                 		break;
+                 	}
+
+                 	$msgType = "text";               	
+                	
+                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                	echo $resultStr;
+                 }
+
                  //判断用户是否上传了地理位置
                   $latitude=$postObj->Location_X;
                   $longitude=$postObj->Location_Y;
