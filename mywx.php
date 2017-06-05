@@ -13,8 +13,8 @@ if ($_GET['echostr'])
 }
 else
 {
-	$wechatObj->responseMsg();
-	//echo $wechatObj->getAccessToken();
+	//$wechatObj->responseMsg();
+	echo $wechatObj->getAccessToken();
 }
 
 //$wechatObj->responseMsg();
