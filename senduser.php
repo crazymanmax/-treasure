@@ -84,7 +84,7 @@
    $mod=new getData1;
 
    $id=$mod->getAccessToken();
-   echo $id;
+   //echo $id;
    //获取openid列表
    $url1="https://api.weixin.qq.com/cgi-bin/user/get?access_token={$id}";
   
@@ -110,6 +110,6 @@
 		}';
    $url="https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token={$id}";
 
-   var_dump($data2);
-   var_dump($mod->getData($url,$data2));		
+   //var_dump($data2);
+   //var_dump($mod->getData($url,$data2));		
  ?>

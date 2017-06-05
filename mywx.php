@@ -113,7 +113,9 @@ class wechatCallbackapiTest
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 	echo $resultStr;
 
-                 }	
+                 }
+
+
 
                  //判断用户发送的内容
                  switch($keyword){
@@ -269,6 +271,19 @@ class wechatCallbackapiTest
 
                  	}
                  }
+
+                  //查询天气的接口
+                 if(preg_match("/^天气(.+)/ui",$keyword,$res)){
+                 	$city=$res[1];
+                 	$url="http://v.juhe.cn/weather/index&cityname=".urlencode($city)."&dtype=json&format=1&key=6a3ff788f9d36db3dee13d4af4240797";
+                 	$res=$this->getData($url);
+
+                 	$msgType = "text";
+                	$contentStr = $res.987;
+                	
+                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                	echo $resultStr;
+                 }	
 
 				//提交文本时，自动回复文字			
 				/*if(!empty( $keyword ))
