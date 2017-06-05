@@ -76,7 +76,7 @@ class wechatCallbackapiTest
                  }
 
                  //判断菜单栏点击事件
-                 if($event=='click'){
+                 if($event=='CLICK'){
                  	switch($postObj->EventKey){
                  		case '1000':
                               $contentStr = "很多美妙的歌曲哦";
