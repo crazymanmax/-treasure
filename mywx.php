@@ -171,6 +171,14 @@ class wechatCallbackapiTest
 					   	echo $resultStr;		
                  	break;
 
+                 	case '大转盘':
+                         $contentStr = "请你点击连接 就可以玩 幸运大转盘了 \r\n\r\n http://39.108.1.202/weixin/pan/index.php ";
+						//返回
+						$msgType = 'text';
+						$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+						echo $resultStr;
+                 	break;
+
                  	case '美女':
                           $textTpl ="<xml>
 									<ToUserName><![CDATA[%s]]></ToUserName>
