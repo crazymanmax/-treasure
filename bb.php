@@ -1,6 +1,8 @@
 <?php 
 
    //获取微信发来的code值
+   
+   //微信网页授权的步骤：走mywx.php页的test超链接，再走到ab.php，跳转到bb.php页面
 
 
      class getData1{
@@ -71,10 +73,13 @@
     var_dump($data);
     exit;*/
     $code=$_GET['code'];
-    echo $code;
+    //echo $code;
 
     $url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx58f393b77aeb9cf1&secret=fba09072347681949aae45301c8c4de5&code={$code}&grant_type=authorization_code";
 
     $data=json_decode($mod->getData($url),true);
+
+    var_dump($data)
+
 
     
