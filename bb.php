@@ -66,11 +66,12 @@
 
     $mod=new getData1();
 
-    $url1="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx58f393b77aeb9cf1&redirect_uri=".urlencode('http://39.108.1.202/weixin/bb.php')."&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+    /*$url1="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx58f393b77aeb9cf1&redirect_uri=".urlencode('http://39.108.1.202/weixin/bb.php')."&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     $data=json_decode($mod->getData($url1),true);
     var_dump($data);
-    exit;
+    exit;*/
     $code=$_GET['code'];
+    echo $code;
 
     $url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx58f393b77aeb9cf1&secret=fba09072347681949aae45301c8c4de5&code={$code}&grant_type=authorization_code";
 
