@@ -35,8 +35,10 @@
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         */
         curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 500);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 
         if(!empty($data)){
         	curl_setopt($ch, CURLOPT_POST, 1);
@@ -93,7 +95,7 @@
    $num=$data['total'];
    $list=$data['data']['openid'];
    //var_dump($list);
-   $list=json_encode($list); 
+   //$list=json_encode($list); 
     //群发短信了
    /*$list1="";
   foreach($list as $v){
@@ -103,13 +105,15 @@
   if(count($list)>1){
   	$list1='['.$list1.']';
   }*/
-   $data2='{
-		   "touser":'.$list.',
-		    "msgtype": "text",
-		    "text": { "content": "hello from boxer."}
-		}';
+   $data2=array(
+            'touser' => $list,
+            'msgtype' => 'text',
+            'text' => array(
+                'content' => 'this is test message with 中文！'
+            );
    $url="https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token={$id}";
-
-   var_dump($data2);
-   //var_dump($mod->getData($url,$data2));		
+      
+  $data2=json_encode($data2, JSON_UNESCAPED_UNICODE);
+   //var_dump($data2);
+   var_dump($mod->getData($url,$data2));		
  ?>
