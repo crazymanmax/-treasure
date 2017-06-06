@@ -104,7 +104,7 @@
   	$list1='['.$list1.']';
   }*/
    $data2='{
-		   "touser":"'.$list.'",
+		   "touser":'.$list.',
 		    "msgtype": "text",
 		    "text": { "content": "hello from boxer."}
 		}';
