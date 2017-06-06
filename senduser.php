@@ -110,7 +110,7 @@
             'msgtype' => 'text',
             'text' => array(
                 'content' => 'this is test message with 中文！'
-            );
+            ));
    $url="https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token={$id}";
       
   $data2=json_encode($data2, JSON_UNESCAPED_UNICODE);
