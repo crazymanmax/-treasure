@@ -79,7 +79,11 @@
 
     $data=json_decode($mod->getData($url),true);
 
-    var_dump($data);
+    //var_dump($data);
 
 
-    
+    $url2="https://api.weixin.qq.com/sns/userinfo?access_token={$data['access_token']}&openid={$data['openid']}&lang=zh_CN";
+
+    $data2=json_decode($mod->getData($url2),true);
+
+    var_dump($data2);
