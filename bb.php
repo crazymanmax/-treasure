@@ -79,7 +79,7 @@
 
     $data=json_decode($mod->getData($url),true);
 
-    var_dump($data)
+    var_dump($data);
 
 
     
