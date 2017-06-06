@@ -93,7 +93,7 @@
    $num=$data['total'];
    $list=$data['data']['openid'];
    //var_dump($list);
-    
+   $list=json_encode($list); 
     //群发短信了
    /*$list1="";
   foreach($list as $v){
