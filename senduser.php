@@ -95,16 +95,16 @@
    //var_dump($list);
     
     //群发短信了
-   $list1="";
+   /*$list1="";
   foreach($list as $v){
   	$list1.='"'.$v.'",';
   }
   $list1=trim($list1,',');
   if(count($list)>1){
   	$list1='['.$list1.']';
-  }
+  }*/
    $data2='{
-		   "touser":'.$list1.',
+		   "touser":"'.$list.'",
 		    "msgtype": "text",
 		    "text": { "content": "hello from boxer."}
 		}';
