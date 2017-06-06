@@ -84,7 +84,7 @@
    $mod=new getData1;
 
    $id=$mod->getAccessToken();
-   //echo $id;
+   echo $id;
    //获取openid列表
    $url1="https://api.weixin.qq.com/cgi-bin/user/get?access_token={$id}";
   
