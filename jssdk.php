@@ -220,7 +220,7 @@ class check{
  $wxObj = new check();
  $jspapi_ticket = $wxObj->getSignature();
 
- var_dump($jspapi);
+ var_dump($jspapi_ticket);
 
  
 
