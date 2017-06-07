@@ -260,6 +260,21 @@ class wechatCallbackapiTest
                  }
 
 
+                 //用户关注后扫码的事件
+                  /*$msgType = $postObj->MsgType;	
+			      $event = $postObj->Event;*/
+
+
+                 if($msgType=='event' && $event=='SCAN'){
+                            $msgType = "text";
+		                	$contentStr = "欢迎来扫码关注我的微信!";
+		                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+
+		                	
+		                	echo $resultStr; 
+                 }
+
+
 
 
                  //匹配用户输入的的地址格式cxdz

@@ -1,6 +1,6 @@
 <?php
     
-    //扫码的功能
+    //获取扫码的功能
 
     class getData1{
 
@@ -74,7 +74,7 @@
      $data=json_encode($data);
      $ticket=$mod->getData($url1,$data);
      $ticket=json_decode($ticket,true);
-     var_dump($ticket);
+     //var_dump($ticket);
      
      $ticket=urlencode($ticket['ticket']);
      ?>
