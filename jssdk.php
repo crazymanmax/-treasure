@@ -201,7 +201,7 @@ class check{
 		 $timestamp=time();
 		 
 		 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-		 $url = $protocol.$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI];
+		 $url = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
 		 $string = "jsapi_ticket={$arr['ticket']}&noncestr={$noncestr}&timestamp={$timestamp}&url={$url}";
         $signature = sha1($string);
