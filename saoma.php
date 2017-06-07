@@ -75,3 +75,17 @@
      $ticket=$mod->getData($url1,$data);
      $ticket=json_decode($ticket,true);
      var_dump($ticket);
+     
+     $ticket=urlencode($ticket['ticket']);
+     ?>
+
+     <!doctype html>
+     <html lang="en">
+     <head>
+     	<meta charset="UTF-8">
+     	<title>获取扫码</title>
+     </head>
+     <body>
+     	  <img src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=<?php echo $ticket; ?>" >
+     </body>
+     </html>
