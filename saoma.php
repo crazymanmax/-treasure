@@ -1,11 +1,8 @@
-<?php 
+<?php
+    
+    //扫码的功能
 
-   //获取微信发来的code值
-   
-   //微信网页授权的步骤：走mywx.php页的test超链接，再走到ab.php，跳转到bb.php页面
-
-
-     class getData1{
+    class getData1{
 
 	    public function getData($url,$data=null)
 	    {
@@ -64,26 +61,17 @@
 	        }
 	    }
      }
+   
+     //{"expire_seconds": 604800, "action_name": "QR_SCENE", "action_info": {"scene": {"scene_id": 123}}}
 
+     $mod=new getData1();
+     
+     $id=$mod->getAccessToken();
 
-    $mod=new getData1();
-
-    /*$url1="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx58f393b77aeb9cf1&redirect_uri=".urlencode('http://39.108.1.202/weixin/bb.php')."&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
-    $data=json_decode($mod->getData($url1),true);
-    var_dump($data);
-    exit;*/
-    $code=$_GET['code'];
-    //echo $code;
-
-    $url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx58f393b77aeb9cf1&secret=fba09072347681949aae45301c8c4de5&code={$code}&grant_type=authorization_code";
-
-    $data=json_decode($mod->getData($url),true);
-
-    //var_dump($data);
-
-
-    $url2="https://api.weixin.qq.com/sns/userinfo?access_token={$data['access_token']}&openid={$data['openid']}&lang=zh_CN";
-
-    $data2=json_decode($mod->getData($url2),true);
-
-    var_dump($data2);
+     //生成临时二维码
+     $url1="https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token={$id}";
+     $data=array("expire_seconds"=>50000,"action_name"=>'QR_SCENE',"action_info"=>array("scene"=>array('scene_id'=>123)));
+     $data=json_encode($data);
+     $ticket=$mod->getData($url1,$data);
+     $ticket=json_decode($ticket,true);
+     var_dump($ticket);
